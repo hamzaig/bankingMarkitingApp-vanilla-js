@@ -84,3 +84,24 @@ tabsContainer.addEventListener("click", function (e) {
   console.log(clicked.dataset.tab);
   document.querySelector(`.operations__content--${clicked.dataset.tab}`).classList.add("operations__content--active");
 })
+
+//Menu Fade Animation
+
+const nav = document.querySelector("nav");
+
+function menuFade(e) {
+  if (e.target.classList.contains("nav__link")) {
+    const link = e.target;
+    const siblings = link.closest(".nav").querySelectorAll(".nav__link");
+    const img = link.closest(".nav").querySelector("img");
+    siblings.forEach(el => {
+      if (el !== link) {
+        el.style.opacity = this;
+      }
+    });
+    img.style.opacity = this;
+  }
+}
+
+nav.addEventListener("mouseover", menuFade.bind(0.5))
+nav.addEventListener("mouseout", menuFade.bind(1))
